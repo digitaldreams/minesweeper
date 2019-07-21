@@ -27,7 +27,7 @@ class Cell
     /**
      * @var Number of Neighbouring mine e.g. 2. If it contain mine then it will be "X"
      */
-    protected $number;
+    protected $number = '_';
 
     /**
      * Whether or Not mine is kept in this cell?
@@ -39,7 +39,7 @@ class Cell
      * Check Whether or Not this cell is still hidden or Visible
      * @var bool
      */
-    protected $visibility = false;
+    protected $visibility = true;
 
     /**
      * Cell constructor.
@@ -52,7 +52,6 @@ class Cell
         $this->cell = $cell;
         $this->uid = $uid;
     }
-
 
     /**
      * @return bool
@@ -68,6 +67,7 @@ class Cell
     public function setMine($id)
     {
         $this->mine = $id;
+        $this->number = 'X';
         return $this;
     }
 
@@ -79,9 +79,23 @@ class Cell
         $this->visibility = true;
     }
 
-    public function generateNumber()
+    /**
+     * @return $this
+     */
+    public function incrementNumber()
     {
+        if (!$this->isMine()) {
+            $this->number = is_int($this->number) ? $this->number+1 : 1;
+        }
+        return $this;
+    }
 
+    /**
+     * @return Number|string
+     */
+    public function displayValue()
+    {
+        return $this->visibility ? $this->number : '_';
     }
 
 

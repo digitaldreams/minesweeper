@@ -3,6 +3,7 @@
 namespace MineSweeper;
 
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Helper\TableSeparator;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -34,7 +35,17 @@ class Display
     public function table(OutputInterface $output)
     {
         $this->table = new Table($output);
-        $this->table->setRows($this->board->getTable());
+        $cell = $this->board->getCell();
+        $columns = range(1, $this->board->getCell());
+        $this->table->addRow($columns);
+        $tableRows = $this->board->getTable();
+        foreach ($tableRows as $r => $row) {
+            $cellValue = [];
+            foreach ($row as $cell) {
+                $cellValue[] = $cell->displayValue();
+            }
+            $this->table->addRow(new TableSeparator())->addRow($cellValue);
+        }
         return $this->table;
     }
 

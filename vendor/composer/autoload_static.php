@@ -81,9 +81,12 @@ class ComposerStaticInitc9c21e4db1a7ccb636bb6e3a4bb0edd9
     public static $classMap = array (
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'MineSweeper\\Board' => __DIR__ . '/../..' . '/src/Board.php',
+        'MineSweeper\\Cell' => __DIR__ . '/../..' . '/src/Cell.php',
         'MineSweeper\\Console\\Command' => __DIR__ . '/../..' . '/src/Commands/Command.php',
         'MineSweeper\\Console\\Greeting' => __DIR__ . '/../..' . '/src/Commands/Greeting.php',
+        'MineSweeper\\Console\\Welcome' => __DIR__ . '/../..' . '/src/Commands/Welcome.php',
         'MineSweeper\\Display' => __DIR__ . '/../..' . '/src/Display.php',
+        'MineSweeper\\MineSweeper' => __DIR__ . '/../..' . '/src/MineSweeper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

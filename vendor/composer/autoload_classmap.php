@@ -8,7 +8,10 @@ $baseDir = dirname($vendorDir);
 return array(
     'JsonException' => $vendorDir . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
     'MineSweeper\\Board' => $baseDir . '/src/Board.php',
+    'MineSweeper\\Cell' => $baseDir . '/src/Cell.php',
     'MineSweeper\\Console\\Command' => $baseDir . '/src/Commands/Command.php',
     'MineSweeper\\Console\\Greeting' => $baseDir . '/src/Commands/Greeting.php',
+    'MineSweeper\\Console\\Welcome' => $baseDir . '/src/Commands/Welcome.php',
     'MineSweeper\\Display' => $baseDir . '/src/Display.php',
+    'MineSweeper\\MineSweeper' => $baseDir . '/src/MineSweeper.php',
 );
