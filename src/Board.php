@@ -105,6 +105,16 @@ class Board
                         }
 
                     }
+                    $sameRowLeft = $c > 0 ? $c - 1 : false;
+                    if ($sameRowLeft !== false) {
+                        $sameLeftCell = $this->table[$k][$sameRowLeft];
+                        $sameLeftCell->incrementNumber();
+                    }
+                    $sameRowRight = $c + 1 < $this->cell ? $c + 1 : false;
+                    if ($sameRowRight !== false) {
+                        $sameRightCell = $this->table[$k][$sameRowRight];
+                        $sameRightCell->incrementNumber();
+                    }
                 }
             }
 
