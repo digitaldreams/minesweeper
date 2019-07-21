@@ -1,6 +1,7 @@
 {
     "require": {
-        "symfony/console": "^4.3"
+        "symfony/console": "^4.3",
+        "tightenco/collect": "^5.8"
     },
     "autoload": {
         "psr-4": {
