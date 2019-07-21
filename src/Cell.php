@@ -46,11 +46,13 @@ class Cell
      * @param $row
      * @param $cell
      */
-    public function __construct($row, $cell)
+    public function __construct($row, $cell, $uid = '')
     {
         $this->row = $row;
         $this->cell = $cell;
+        $this->uid = $uid;
     }
+
 
     /**
      * @return bool
