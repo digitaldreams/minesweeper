@@ -85,7 +85,7 @@ class Cell
     public function incrementNumber()
     {
         if (!$this->isMine()) {
-            $this->number = is_int($this->number) ? $this->number+1 : 1;
+            $this->number = is_int($this->number) ? $this->number + 1 : 1;
         }
         return $this;
     }

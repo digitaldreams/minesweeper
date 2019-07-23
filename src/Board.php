@@ -136,20 +136,23 @@ class Board
     /**
      * @param $row
      * @param $cell
+     * @return bool
      * @throws \Exception
      */
     public function check($row, $cell)
     {
         if (isset($this->table[$row][$cell])) {
             $cellObj = $this->table[$row][$cell];
+            print_r($cellObj);
             if ($cellObj->isMine()) {
-                $this->isOver = true;
+                MineSweeper::$isOver = true;
+                return false;
             } else {
                 $cellObj->show();
+                return true;
             }
-        } else {
-            throw new \Exception('Invalid Row and Cell Given');
         }
+        return false;
     }
 
     /**
