@@ -39,7 +39,7 @@ class Cell
      * Check Whether or Not this cell is still hidden or Visible
      * @var bool
      */
-    protected $visibility = true;
+    protected $visibility = false;
 
     /**
      * Cell constructor.

@@ -30,6 +30,7 @@ class Display
     }
 
     /**
+     * Show Rows and Columns to the console
      * @param $output
      * @return Table
      */

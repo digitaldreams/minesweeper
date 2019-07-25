@@ -13,5 +13,4 @@ return array(
     'MineSweeper\\Console\\Greeting' => $baseDir . '/src/Commands/Greeting.php',
     'MineSweeper\\Console\\Welcome' => $baseDir . '/src/Commands/Welcome.php',
     'MineSweeper\\Display' => $baseDir . '/src/Display.php',
-    'MineSweeper\\MineSweeper' => $baseDir . '/src/MineSweeper.php',
 );

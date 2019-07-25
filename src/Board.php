@@ -4,6 +4,9 @@ namespace MineSweeper;
 
 class Board
 {
+    public static $isOver = false;
+    public static $started = false;
+
     protected $row;
     protected $cell;
     protected $table = [];
@@ -24,7 +27,29 @@ class Board
         $this->totalMines = $totalMines;
     }
 
+    public function isOver()
+    {
+        return static::$isOver;
+    }
+
+    public function end()
+    {
+        $this->isOver = true;
+        return $this;
+    }
+
+    public function start()
+    {
+        $this->started = true;
+    }
+
+    public function isStarted()
+    {
+        return static::$started;
+    }
+
     /**
+     * Generate Random Mines
      * @param int $total
      * @return array
      */
@@ -38,11 +63,11 @@ class Board
                 $mines[] = $number;
             }
         }
-        print_r($mines);
         return $this->mines = $mines;
     }
 
     /**
+     * Build the Board. Each Cell is a object of Cell Class
      * @return $this
      */
     public function generate()
@@ -65,6 +90,10 @@ class Board
         return $this;
     }
 
+    /**
+     * Generate Cell number like 1,2 That means associate mines Related to this field.
+     * If a cell contains a mine then it will have "X" instead of numberic number
+     */
     public function setCellNumber()
     {
         for ($k = 0; $k < count($this->table); $k++) {
@@ -119,21 +148,20 @@ class Board
             }
 
         }
-        foreach ($this->table as $rkey => $row) {
-            $rkey = $rkey - 1;
-            foreach ($row as $ckey => $cell) {
-                $ckey = $ckey - 1;
-
-            }
-        }
     }
 
+    /**
+     * Display Actual board to the console
+     * @param $output
+     * @return \Symfony\Component\Console\Helper\Table
+     */
     public function display($output)
     {
         return (new Display($this))->table($output);
     }
 
     /**
+     * Hit a cell by Row and Value.
      * @param $row
      * @param $cell
      * @return bool
@@ -145,7 +173,7 @@ class Board
             $cellObj = $this->table[$row][$cell];
             print_r($cellObj);
             if ($cellObj->isMine()) {
-                MineSweeper::$isOver = true;
+                Board::$isOver = true;
                 return false;
             } else {
                 $cellObj->show();
